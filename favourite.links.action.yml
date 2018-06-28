@@ -1,0 +1,5 @@
+entity.favourite.add_form:
+  route_name: entity.favourite.add_form
+  title: 'Add Favourite'
+  appears_on:
+    - entity.favourite.collection

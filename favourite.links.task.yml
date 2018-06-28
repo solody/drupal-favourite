@@ -1,0 +1,22 @@
+# Favourite routing definition
+favourite.settings_tab:
+  route_name: favourite.settings
+  title: 'Settings'
+  base_route: favourite.settings
+
+entity.favourite.canonical:
+  route_name: entity.favourite.canonical
+  base_route: entity.favourite.canonical
+  title: 'View'
+
+entity.favourite.edit_form:
+  route_name: entity.favourite.edit_form
+  base_route: entity.favourite.canonical
+  title: 'Edit'
+
+entity.favourite.delete_form:
+  route_name:  entity.favourite.delete_form
+  base_route:  entity.favourite.canonical
+  title: Delete
+  weight: 10
+

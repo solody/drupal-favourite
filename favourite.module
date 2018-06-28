@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Contains favourite.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_help().
+ */
+function favourite_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the favourite module.
+    case 'help.page.favourite':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function favourite_theme() {
+  return [
+    'favourite' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_install().
+ */
+function favourite_install()
+{
+    // 为已认证用户添加权限
+    user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, [
+        'add favourite entities',
+        'delete favourite entities',
+        'edit favourite entities',
+        'view valid favourite entities',
+        'view invalid favourite entities'
+    ]);
+}

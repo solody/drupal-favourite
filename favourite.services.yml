@@ -1,0 +1,6 @@
+services:
+  favourite.normalizer.favourite_entity:
+    class: Drupal\favourite\Normalizer\FavouriteEntityNormalizer
+    arguments: ['@entity.manager']
+    tags:
+      - { name: normalizer, priority: 9 }
